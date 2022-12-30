@@ -19,7 +19,7 @@ const AddingModal = () => {
         }
         console.log(adding);
 
-        fetch('http://localhost:5000/addings',{
+        fetch('https://task-manager-server-alpha.vercel.app/addings',{
             method:'POST',
             headers:{
                 'content-type':'application/json'

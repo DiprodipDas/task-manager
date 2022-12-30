@@ -5,7 +5,7 @@ import { AuthContext } from '../../contexts/AuthProvider/AuthProvider';
 const MyTask = () => {
     const { user } = useContext(AuthContext);
 
-    const url = `http://localhost:5000/addings?email=${user?.email}`;
+    const url = `https://task-manager-server-alpha.vercel.app/addings?email=${user?.email}`;
 
     const { data: addings = [] } = useQuery({
         queryKey: ['addings', user?.email],
@@ -29,6 +29,8 @@ const MyTask = () => {
                             <th>Task Name</th>
                             <th>Image url</th>
                             <th>Task Date</th>
+                            <th>Mark as complete</th>
+                            <th>Delete Task</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -38,6 +40,8 @@ const MyTask = () => {
                             <td>{adding.taskName}</td>
                             <td>{adding.photo}</td>
                             <td>{adding.date}</td>
+                            <td><button className='btn btn-warning'>Complete</button></td>
+                            <td><button className='btn btn-error'>Delete</button></td>
                         </tr>)
                         }
                     </tbody>
